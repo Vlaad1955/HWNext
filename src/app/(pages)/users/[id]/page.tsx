@@ -1,10 +1,12 @@
 import React from 'react';
+import {fetchId} from "@/app/service/appi.service";
+import {urls} from "@/app/constant/urls";
 
 type Params = { id: string }
 
 const UserPage = async ({params}: { params: Params }) => {
 
-    const user = await fetch('https://jsonplaceholder.typicode.com/users/' + params.id).then(res => res.json());
+    const user = await fetchId(urls.UserUrl, params.id)
 
 
     return (
